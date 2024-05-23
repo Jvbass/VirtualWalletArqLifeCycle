@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/homePageFragment">
+
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.view.fragments.HomePageFragment"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" />
+    <fragment
+        android:id="@+id/emptyTransactionList"
+        android:name="cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.view.fragments.EmptyTransactionList"
+        android:label="fragment_empty_transaction_list"
+        tools:layout="@layout/fragment_empty_transaction_list" />
+</navigation>

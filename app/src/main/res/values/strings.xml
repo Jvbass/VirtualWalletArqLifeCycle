@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">WalletArqLifeCycle</string>
+    <string name="app_name">VirtualWallet</string>
+    <string name="apptitle">AlkeWallet</string>
+    <string name="slogan">El lugar mas seguro para tu dinero</string>
+    <string name="ya_tienes_cuenta">¿Ya tienes cuenta?</string>
+    <string name="login">Login</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mi_informacion">Mi Información</string>
+    <string name="mis_tarjetas">Mis tarjetas</string>
+    <string name="opciones">Opciones</string>
+    <string name="centro_de_ayuda">Centro de ayuda</string>
+    <string name="amanda_alkemy">Amanda Alkemy</string>
+    <string name="mi_perfil">Mi perfil</string>
+    <string name="crear_cuenta_nueva">Crear cuenta nueva</string>
 </resources>
