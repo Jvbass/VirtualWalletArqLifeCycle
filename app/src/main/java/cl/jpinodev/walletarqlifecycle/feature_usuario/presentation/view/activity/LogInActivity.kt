@@ -13,29 +13,29 @@ import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.Use
 
 class LogInActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLogInBinding
-    private val userViewModel: UserViewModel by viewModels()
+    private val userViewModel: UserViewModel by viewModels() // en activity se usa by viewModels
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLogInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
+       // userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
         binding.loginButton.setOnClickListener {
             val txtEmail = binding.emailEditText.text.toString()
             val txtPassword = binding.passwordEditText.text.toString()
 
-            val usuario = userViewModel.autenticarUsuario(txtEmail, txtPassword)
-            Log.i("usuario", usuario.toString())
-            if (usuario != null) {
-                userViewModel.setUsuarioConectado(usuario)
+            val user = userViewModel.autenticarUsuario(txtEmail,txtPassword)
+            if (user != null) {
+               //Log.d("TESTING", test.toString())
                 val intent = Intent(this, MainContainer::class.java)
+                intent.putExtra("usuario", user)
                 startActivity(intent)
-                finish()
             } else {
-                Toast.makeText(this, "Usuario o contraseña incorrectos, por favor intente nuevamente", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
             }
+
         }
     }
 }
