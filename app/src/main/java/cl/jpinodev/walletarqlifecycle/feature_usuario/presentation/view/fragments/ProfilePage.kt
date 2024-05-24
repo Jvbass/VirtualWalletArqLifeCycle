@@ -7,13 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import cl.jpinodev.walletarqlifecycle.R
 
-class HomePageFragment : Fragment() {
+class ProfilePage : Fragment() {
+    // TODO: Rename and change types of parameters
+    private var param1: String? = null
+    private var param2: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home_page, container, false)
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_profile_page, container, false)
     }
- }
 
+}

@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import cl.jpinodev.walletarqlifecycle.R
 import cl.jpinodev.walletarqlifecycle.databinding.ActivityLogInBinding
 import cl.jpinodev.walletarqlifecycle.databinding.ActivityMainContainerBinding
+import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.view.fragments.HomePageFragment
 
 class MainContainer : AppCompatActivity() {
     private lateinit var binding: ActivityMainContainerBinding
@@ -16,5 +17,6 @@ class MainContainer : AppCompatActivity() {
 
         binding = ActivityMainContainerBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
     }
 }

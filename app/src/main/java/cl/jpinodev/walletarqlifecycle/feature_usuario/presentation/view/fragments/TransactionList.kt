@@ -7,13 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import cl.jpinodev.walletarqlifecycle.R
 
-class HomePageFragment : Fragment() {
+class TransactionList : Fragment() {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home_page, container, false)
+        return inflater.inflate(R.layout.fragment_transaction_list, container, false)
     }
- }
-
+}

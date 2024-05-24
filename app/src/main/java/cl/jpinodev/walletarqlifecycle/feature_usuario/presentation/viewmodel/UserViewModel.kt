@@ -16,8 +16,8 @@ class UserViewModel: ViewModel() {
     }
     */
   init {
-      _usuarios.value = mutableListOf(Usuario("User01", "Juan", "123123",
-          "123123",  "14-10-2021"))
+      _usuarios.value = mutableListOf(Usuario("User01", "Juan", "123",
+          "123",  "14-10-2021"))
   }
 
     private val _usuarioConectado = MutableLiveData<Usuario>()
