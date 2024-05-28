@@ -2,21 +2,15 @@ package cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.view.activit
 
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import cl.jpinodev.walletarqlifecycle.R
-import cl.jpinodev.walletarqlifecycle.databinding.ActivityLogInBinding
 import cl.jpinodev.walletarqlifecycle.databinding.ActivityMainContainerBinding
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Usuario
-import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.view.fragments.HomePageFragment
-import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.UserViewModel
+import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.WalletViewModel
 
 class MainContainer : AppCompatActivity() {
     private lateinit var binding: ActivityMainContainerBinding
-    private val viewModel: UserViewModel by viewModels()
+    private val viewModel: WalletViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -2,18 +2,15 @@ package cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.view.activit
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import cl.jpinodev.walletarqlifecycle.databinding.ActivityLogInBinding
-import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.UserViewModel
+import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.WalletViewModel
 
 class LogInActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLogInBinding
-    private val userViewModel: UserViewModel by viewModels() // en activity se usa by viewModels
+    private val walletViewModel: WalletViewModel by viewModels() // en activity se usa by viewModels
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +23,7 @@ class LogInActivity : AppCompatActivity() {
             val txtEmail = binding.emailEditText.text.toString()
             val txtPassword = binding.passwordEditText.text.toString()
 
-            val user = userViewModel.autenticarUsuario(txtEmail,txtPassword)
+            val user = walletViewModel.autenticarUsuario(txtEmail,txtPassword)
             if (user != null) {
                //Log.d("TESTING", test.toString())
                 val intent = Intent(this, MainContainer::class.java)

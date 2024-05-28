@@ -9,10 +9,38 @@
         android:id="@+id/homePageFragment"
         android:name="cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.view.fragments.HomePageFragment"
         android:label="fragment_home_page"
-        tools:layout="@layout/fragment_home_page" />
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/action_homePageFragment_to_profilePage"
+            app:destination="@id/profilePage" />
+        <action
+            android:id="@+id/action_homePageFragment_to_transactionReceive"
+            app:destination="@id/transactionReceive" />
+        <action
+            android:id="@+id/action_homePageFragment_to_transactionSend"
+            app:destination="@id/transactionSend" />
+    </fragment>
     <fragment
-        android:id="@+id/emptyTransactionList"
-        android:name="cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.view.fragments.EmptyTransactionList"
-        android:label="fragment_empty_transaction_list"
-        tools:layout="@layout/fragment_empty_transaction_list" />
+        android:id="@+id/profilePage"
+        android:name="cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.view.fragments.ProfilePage"
+        android:label="fragment_profile_page"
+        tools:layout="@layout/fragment_profile_page" />
+    <fragment
+        android:id="@+id/transactionReceive"
+        android:name="cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.view.fragments.TransactionReceive"
+        android:label="fragment_transaction_receive"
+        tools:layout="@layout/fragment_transaction_receive" >
+        <action
+            android:id="@+id/action_transactionReceive_to_homePageFragment"
+            app:destination="@id/homePageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionSend"
+        android:name="cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.view.fragments.TransactionSend"
+        android:label="fragment_transaction_send"
+        tools:layout="@layout/fragment_transaction_send" >
+        <action
+            android:id="@+id/action_transactionSend_to_homePageFragment"
+            app:destination="@id/homePageFragment" />
+    </fragment>
 </navigation>
