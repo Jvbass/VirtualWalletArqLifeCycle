@@ -38,22 +38,43 @@ class HomePageFragment : Fragment() {
         binding.profileImage.setOnClickListener {
             navController.navigate(R.id.profilePage)
         }
+        binding.btnRequest.setOnClickListener {
+            navController.navigate(R.id.transactionReceive)
+        }
+        binding.btnSend.setOnClickListener {
+            navController.navigate(R.id.transactionSend)
+        }
 
-        viewModel.usuarioConectado.observe(viewLifecycleOwner) {
-            binding.greetingName.text = it.nombre
+        viewModel.usuarioConectado.observe(viewLifecycleOwner) { usuario ->
+            binding.greetingName.text = usuario.nombre
+            val imageResource = viewModel.getUserImageResource(usuario.user_id)
+            binding.profileImage.setImageResource(imageResource)
+            filterTransactions(usuario.user_id)
         }
 
         viewModel.transactionsLD.observe(viewLifecycleOwner) { transactions ->
-            adapter.transactions = transactions
-            adapter.notifyDataSetChanged()
-            if (transactions.isEmpty()) {
-                binding.recyclerTransactionList.visibility = View.GONE
-                binding.emptyTransactionList.visibility = View.VISIBLE
-            } else {
-                binding.recyclerTransactionList.visibility = View.VISIBLE
-                binding.emptyTransactionList.visibility = View.GONE
+            val usuarioId = viewModel.usuarioConectado.value?.user_id
+            if (usuarioId != null) {
+                filterTransactions(usuarioId)
             }
         }
     }
- }
+
+    private fun filterTransactions(userId: String) {
+        val allTransactions = viewModel.transactionsLD.value ?: mutableListOf()
+        val filteredTransactions = allTransactions.filter {
+            it.idSender == userId || it.idReceriver == userId
+        }
+        adapter.transactions = filteredTransactions.toMutableList()
+        adapter.notifyDataSetChanged()
+
+        if (filteredTransactions.isEmpty()) {
+            binding.recyclerTransactionList.visibility = View.GONE
+            binding.emptyTransactionList.visibility = View.VISIBLE
+        } else {
+            binding.recyclerTransactionList.visibility = View.VISIBLE
+            binding.emptyTransactionList.visibility = View.GONE
+        }
+    }
+}
 
