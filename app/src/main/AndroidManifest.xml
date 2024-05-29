@@ -16,10 +16,9 @@
             android:name=".feature_usuario.presentation.view.activity.MainContainer"
             android:exported="false" />
         <activity
-            android:name=".feature_usuario.presentation.view.activity.HomePageActivity"
-            android:exported="false" />
-        <activity
             android:name=".feature_usuario.presentation.view.activity.LoginSignupActivity"
+            android:exported="false" />
+        <activity android:name=".feature_usuario.presentation.view.activity.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".feature_usuario.presentation.view.activity.LogInActivity"
