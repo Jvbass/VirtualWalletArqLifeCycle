@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import cl.jpinodev.walletarqlifecycle.R
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.local.TransactionDataSet
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.local.UsuariosDataSet
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Transaction
@@ -34,6 +35,16 @@ class WalletViewModel : ViewModel() {
             return usuario
         } else {
             return null
+        }
+    }
+    fun getUserImageResource(userId: String): Int {
+        return when (userId) {
+            "User01" -> R.drawable.pp3
+            "User02" -> R.drawable.pp2
+            "User03" -> R.drawable.pp1
+            "User04" -> R.drawable.pp4
+            "User05" -> R.drawable.pp5
+            else -> R.drawable.pdefault // Imagen predeterminada en caso de no encontrar coincidencia
         }
     }
 }

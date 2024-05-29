@@ -32,7 +32,9 @@ class ProfilePage : Fragment() {
         binding = FragmentProfilePageBinding.bind(view)
         viewModel.usuarioConectado.observe(viewLifecycleOwner) {
             binding.userName.text = it.nombre + " " + it.apellido
+            val imageResource = viewModel.getUserImageResource(it.user_id)
+            binding.userAvatar.setImageResource(imageResource)
+
         }
     }
-
 }

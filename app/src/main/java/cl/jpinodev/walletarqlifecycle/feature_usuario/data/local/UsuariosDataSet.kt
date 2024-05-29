@@ -6,11 +6,11 @@ class UsuariosDataSet {
     fun createUsuarios(): MutableList<Usuario> {
         return mutableListOf(
             Usuario("User01", "Juan","Pino", "123", "123", "14-10-2021"),
-            Usuario("User02", "Pedro","Pe", "pedro@admin", "123123", "14-10-2021"),
-            Usuario("User03", "Maria", "Alvarez", "maria@admin", "123123", "14-10-2021"),
-            Usuario("User04", "Jose", "Perez", "jose@admin", "123123", "14-10-2021"),
-            Usuario("User05", "Luis", "Hermosilla", "luis@admin", "123123", "14-10-2021"),
-            Usuario("User06", "Ana","Corpse", "ana@admin", "123123", "14-10-2021"),
+            Usuario("User02", "Petronila ","Eizaguirre", "pedro@admin", "123123", "14-10-2021"),
+            Usuario("User03", "Esmeralda ", "Brandibuque", "maria@admin", "123123", "14-10-2021"),
+            Usuario("User04", "Fidelina ", "Gamyi", "jose@admin", "123123", "14-10-2021"),
+            Usuario("User05", "Daniela", "Hermosilla", "luis@admin", "123123", "14-10-2021"),
+            Usuario("User06", "Ana","Corpse", "ana@admin", "123", "14-10-2021"),
         )
     }
     fun getAllUsuarios(): MutableList<Usuario>? {
