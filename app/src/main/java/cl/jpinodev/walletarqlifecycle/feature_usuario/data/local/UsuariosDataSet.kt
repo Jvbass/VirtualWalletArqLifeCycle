@@ -3,7 +3,7 @@ package cl.jpinodev.walletarqlifecycle.feature_usuario.data.local
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Usuario
 
 class UsuariosDataSet {
-    fun createUsuarios(): MutableList<Usuario> {
+    private fun createUsuarios(): MutableList<Usuario> {
         return mutableListOf(
             Usuario("User01", "Juan","Pino", "123", "123", "14-10-2021"),
             Usuario("User02", "Petronila ","Eizaguirre", "pedro@admin", "123123", "14-10-2021"),

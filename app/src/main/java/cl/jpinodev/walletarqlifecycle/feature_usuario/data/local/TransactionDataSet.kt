@@ -16,7 +16,7 @@ class TransactionDataSet {
              Transaction("T04", 8000.0,"User04","User01", "2022-01-01 15:34:51" ),
              Transaction("T05", 2550.0,"User03","User01", "2022-01-01 14:32:32" ),
              Transaction("T06", 2000.0,"User02","User01", "2022-01-01 13:21:10" ),
-             Transaction("T07", 50.0,"User03","User02", "2022-01-01 12:14:11" ),
+             Transaction("T07", 50.0,"User03","User06", "2022-01-01 12:14:11" ),
          )
         //return mutableListOf()
     }
