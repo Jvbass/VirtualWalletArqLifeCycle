@@ -1,15 +1,12 @@
 package cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.adapter
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import cl.jpinodev.walletarqlifecycle.R
-import cl.jpinodev.walletarqlifecycle.databinding.UsersItemBinding
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Usuario
 
 class UsersAdapter(private val context: Context, private val usuarios: List<Usuario>) : BaseAdapter() {
