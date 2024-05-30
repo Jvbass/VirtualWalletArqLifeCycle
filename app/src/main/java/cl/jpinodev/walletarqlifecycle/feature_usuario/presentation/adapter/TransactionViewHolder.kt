@@ -1,14 +1,20 @@
 package cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.adapter
 
 import androidx.recyclerview.widget.RecyclerView
+import cl.jpinodev.walletarqlifecycle.R
 import cl.jpinodev.walletarqlifecycle.databinding.TransactionItemBinding
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Transaction
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Usuario
 import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.WalletViewModel
 /*
+* Se encarga de pintar en el RecyclerView la información de la transacción.
+* Se realiza un filtro para obtener solo las transacciones pertenecientes al usuario conectado.
+* Define al otherUserId como el id del usuario con el que se realizó la transacción para obtener
+* su información y pintarla en el RecyclerView. Ademas define si el usuario conectado recibe o enviando dinero.
+* con esto definimos el icono y el tipo de operación.
 *
-
-* */
+*  @Params bindingItem: TransactionItemBinding, usuarios: List<Usuario>
+*  */
 class TransactionViewHolder(
     private var bindingItem: TransactionItemBinding,
     private val usuarios: List<Usuario>
@@ -25,14 +31,21 @@ class TransactionViewHolder(
                 transaction.idSender
             }
 
-            /*
-            * Recibe la lista de usuarios y encuentra el otro usuario involucrado en la transacción.
-            * */
             val otherUser = usuarios.find { it.user_id == otherUserId }
             otherUser?.let { user ->
                 bindingItem.transactionUserName.text = user.nombre
                 val imageResource = WalletViewModel().getUserImageResource(user.user_id)
                 bindingItem.transactionUserImg.setImageResource(imageResource)
+            }
+
+            if (transaction.idSender == usuarioConectado?.user_id) {
+                // Enviando
+                bindingItem.operationIcon.setImageResource(R.drawable.send_icon_yellow)
+                bindingItem.transactionOperationType.text = "-"
+            } else {
+                // Recibiendo
+                bindingItem.operationIcon.setImageResource(R.drawable.request_icon_blue)
+                bindingItem.transactionOperationType.text = "+"
             }
         }
     }
