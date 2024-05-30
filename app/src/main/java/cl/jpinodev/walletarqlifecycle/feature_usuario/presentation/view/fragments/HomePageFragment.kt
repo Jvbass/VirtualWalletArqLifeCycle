@@ -50,6 +50,8 @@ class HomePageFragment : Fragment() {
             val imageResource = viewModel.getUserImageResource(usuario.user_id)
             binding.profileImage.setImageResource(imageResource)
             filterTransactions(usuario.user_id)
+            binding.balanceAmount.text = viewModel.getBalanceForUser(usuario.user_id).toString()
+            filterTransactions(usuario.user_id)
         }
 
         viewModel.transactionsLD.observe(viewLifecycleOwner) { transactions ->

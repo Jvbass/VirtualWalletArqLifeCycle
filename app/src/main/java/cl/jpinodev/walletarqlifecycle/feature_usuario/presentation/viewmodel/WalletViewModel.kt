@@ -5,17 +5,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import cl.jpinodev.walletarqlifecycle.R
+import cl.jpinodev.walletarqlifecycle.feature_usuario.data.local.AccountDataSet
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.local.TransactionDataSet
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.local.UsuariosDataSet
+import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Account
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Transaction
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Usuario
 
 class WalletViewModel : ViewModel() {
     private val _usuarios = MutableLiveData<MutableList<Usuario>>()
     private val _transactions = MutableLiveData<MutableList<Transaction>>()
+    private val _accounts = MutableLiveData<MutableList<Account>>()
 
     val usuarios: LiveData<MutableList<Usuario>> get() = _usuarios
     val transactionsLD: MutableLiveData<MutableList<Transaction>> get() = _transactions
+    val accountsLD: MutableLiveData<MutableList<Account>> get() = _accounts
 
     private val _usuarioConectado = MutableLiveData<Usuario>()
     val usuarioConectado: LiveData<Usuario> get() = _usuarioConectado
@@ -23,6 +27,7 @@ class WalletViewModel : ViewModel() {
     init {
         _usuarios.value =  UsuariosDataSet().getAllUsuarios()
         _transactions.value = TransactionDataSet().getTransactionList()
+        _accounts.value = AccountDataSet().getAllAccounts()
     }
 
     fun setUsuarioConectado(usuario: Usuario) { //Setea el usuario conectado
@@ -46,5 +51,8 @@ class WalletViewModel : ViewModel() {
             "User05" -> R.drawable.pp5
             else -> R.drawable.pdefault // Imagen predeterminada en caso de no encontrar coincidencia
         }
+    }
+    fun getBalanceForUser(userId: String): Double {
+        return _accounts.value?.find { it.user_id == userId }?.balance ?: 0.0
     }
 }
