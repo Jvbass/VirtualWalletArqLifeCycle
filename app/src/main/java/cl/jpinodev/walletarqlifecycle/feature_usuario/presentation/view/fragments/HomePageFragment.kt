@@ -28,12 +28,7 @@ class HomePageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomePageBinding.bind(view)
-        adapter = TransactionAdapter()
         val navController = Navigation.findNavController(view)
-
-        binding.recyclerTransactionList.adapter = adapter
-        binding.recyclerTransactionList.layoutManager = LinearLayoutManager(this.context)
-
 
         binding.profileImage.setOnClickListener {
             navController.navigate(R.id.profilePage)
@@ -49,8 +44,13 @@ class HomePageFragment : Fragment() {
             binding.greetingName.text = usuario.nombre
             val imageResource = viewModel.getUserImageResource(usuario.user_id)
             binding.profileImage.setImageResource(imageResource)
-            filterTransactions(usuario.user_id)
             binding.balanceAmount.text = viewModel.getBalanceForUser(usuario.user_id).toString()
+
+            // Inicializar el adapter después de que usuarioConectado esté disponible
+            adapter = TransactionAdapter(usuario, viewModel.usuarios.value ?: mutableListOf())
+            binding.recyclerTransactionList.adapter = adapter
+            binding.recyclerTransactionList.layoutManager = LinearLayoutManager(this.context)
+
             filterTransactions(usuario.user_id)
         }
 
@@ -79,4 +79,3 @@ class HomePageFragment : Fragment() {
         }
     }
 }
-

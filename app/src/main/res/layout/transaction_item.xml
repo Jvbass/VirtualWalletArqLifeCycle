@@ -11,7 +11,7 @@
     >
 
             <ImageView
-                android:id="@+id/user_avatar1"
+                android:id="@+id/transaction_userImg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/pp2"
@@ -40,19 +40,38 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="@+id/user_avatar1"
-                app:layout_constraintStart_toEndOf="@+id/user_avatar1"
+                app:layout_constraintBottom_toBottomOf="@+id/transaction_userImg"
+                app:layout_constraintStart_toEndOf="@+id/transaction_userImg"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
                 <TextView
+                    android:id="@+id/transaction_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/font_jua_wallet"
-                    android:text="Yara Khalil"
+                    android:text="Yara"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:layout_editor_absoluteY="10dp" />
+
                 <TextView
+                    android:id="@+id/transaction_user_lastname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jua_wallet"
+                    android:text="Khalil"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="1dp"
+                    tools:layout_editor_absoluteY="10dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/transaction_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/font_jua_wallet"

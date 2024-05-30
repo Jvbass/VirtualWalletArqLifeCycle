@@ -20,9 +20,9 @@ class WalletViewModel : ViewModel() {
     val usuarios: LiveData<MutableList<Usuario>> get() = _usuarios
     val transactionsLD: MutableLiveData<MutableList<Transaction>> get() = _transactions
     val accountsLD: MutableLiveData<MutableList<Account>> get() = _accounts
+    val usuarioConectado: LiveData<Usuario> get() = _usuarioConectado
 
     private val _usuarioConectado = MutableLiveData<Usuario>()
-    val usuarioConectado: LiveData<Usuario> get() = _usuarioConectado
 
     init {
         _usuarios.value =  UsuariosDataSet().getAllUsuarios()

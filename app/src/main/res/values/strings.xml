@@ -15,4 +15,5 @@
     <string name="crear_cuenta_nueva">Crear cuenta nueva</string>
     <string name="ultimas_transacciones">Ultimas transacciones</string>
     <string name="cantidad_a_transferir">Cantidad a transferir</string>
+    <string name="elija_un_contacto">Elija un contacto</string>
 </resources>

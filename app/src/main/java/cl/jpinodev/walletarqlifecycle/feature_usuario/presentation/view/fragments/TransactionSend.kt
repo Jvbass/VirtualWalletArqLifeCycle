@@ -5,12 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import cl.jpinodev.walletarqlifecycle.R
 import cl.jpinodev.walletarqlifecycle.databinding.FragmentTransactionSendBinding
+import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.adapter.UsersAdapter
+import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.WalletViewModel
 
 class TransactionSend : Fragment() {
     private lateinit var binding: FragmentTransactionSendBinding
+    private val viewModel: WalletViewModel by activityViewModels()
+    private lateinit var adapter: UsersAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +32,10 @@ class TransactionSend : Fragment() {
 
         binding.materialToolbar.setNavigationOnClickListener {
             navController.navigateUp()
+        }
+        viewModel.usuarios.observe(viewLifecycleOwner) { usuarios ->
+            adapter = UsersAdapter(requireContext(), usuarios)
+            binding.spinnerSendMoney.adapter = adapter
         }
     }
 }
