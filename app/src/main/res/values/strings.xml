@@ -16,4 +16,6 @@
     <string name="ultimas_transacciones">Ultimas transacciones</string>
     <string name="cantidad_a_transferir">Cantidad a transferir</string>
     <string name="elija_un_contacto">Elija un contacto</string>
+    <string name="ingresar_dinero">Ingresar Dinero</string>
+    <string name="enviar_dinero">Enviar Dinero</string>
 </resources>

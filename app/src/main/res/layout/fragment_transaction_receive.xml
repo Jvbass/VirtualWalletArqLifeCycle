@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".feature_usuario.presentation.view.fragments.TransactionReceive">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline4"
@@ -16,6 +12,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_begin="15dp" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline5"
             android:layout_width="wrap_content"
@@ -33,6 +30,7 @@
             app:navigationIcon="?attr/homeAsUpIndicator"
             app:navigationIconTint="@color/black"
             app:title="Ingresar Dinero"
+            app:titleTextColor="@color/primary_dark"
             app:titleCentered="true"
             app:titleTextAppearance="@style/Toolbar.TitleText" />
 
@@ -50,40 +48,22 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginTop="24dp"
-            android:src="@drawable/pp4"
+            android:src="@drawable/pp_standar"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toBottomOf="@+id/materialToolbar" />
 
-        <LinearLayout
+
+        <Spinner
+            android:id="@+id/spinner_receive_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:layout_marginStart  ="12dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintBottom_toTopOf="@+id/input_amount_send"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/imageView2">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/font_jua_wallet"
-                android:text="Reem Khaled"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                tools:layout_editor_absoluteX="132dp"
-                tools:layout_editor_absoluteY="165dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/font_jua_wallet"
-                android:text="reem_1993@gmail.com"
-                android:textColor="@color/color_grey"
-                android:textSize="14sp"
-                tools:layout_editor_absoluteX="132dp"
-                tools:layout_editor_absoluteY="165dp" />
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
+            app:layout_constraintVertical_bias="0.343"
+            tools:listitem="@layout/users_item" />
 
         <TextView
             android:id="@+id/label_cantidad_ingresar"
@@ -174,7 +154,7 @@
             android:id="@+id/bg_transactionbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="10dp"
+
             android:background="@drawable/bg_rectangle_transactionbtn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -188,7 +168,7 @@
             android:layout_marginEnd="15dp"
             android:backgroundTint="@color/primary_dark"
             android:fontFamily="@font/jua"
-            android:text="Ingresar Dinero"
+            android:text="@string/ingresar_dinero"
             app:icon="@drawable/request_icon_blue"
             app:iconTint="@color/white"
             app:iconGravity="textStart"
@@ -202,5 +182,3 @@
             app:layout_constraintTop_toTopOf="@+id/bg_transactionbtn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</FrameLayout>
