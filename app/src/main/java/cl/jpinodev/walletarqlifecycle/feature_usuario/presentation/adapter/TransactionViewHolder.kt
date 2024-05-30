@@ -34,6 +34,7 @@ class TransactionViewHolder(
             val otherUser = usuarios.find { it.user_id == otherUserId }
             otherUser?.let { user ->
                 bindingItem.transactionUserName.text = user.nombre
+                bindingItem.transactionUserLastname.text = user.apellido
                 val imageResource = WalletViewModel().getUserImageResource(user.user_id)
                 bindingItem.transactionUserImg.setImageResource(imageResource)
             }
