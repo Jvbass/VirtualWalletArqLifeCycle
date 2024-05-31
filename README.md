@@ -19,7 +19,7 @@
 
 ****
 ## 💸 VirtualWallet
-![Clean architecture](./CleanArch.png)
+![Clean architecture](./CleanArch.png) ![ViewModel](./viewmodel-lifecycle.png)
 
 En este proyecto se representan conceptos aprendidos sobre el ciclo de vida de una aplicacion y la metodologia para la persistencia de datos a traves de este. Se focaliza especialmente en el uso del View Model y la arquitectura MVVM (Model View ViewModel) que le hace referencia. 
 
