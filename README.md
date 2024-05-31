@@ -20,8 +20,8 @@
 ****
 ## 💸 VirtualWallet
 <div align="center">
-    <img src="./CleanArch.png" alt="Clean architecture" width="300" height="300">
-    <img src="./viewmodel-lifecycle.png" alt="ViewModel" width="300" height="300">
+    <img src="./CleanArch.png" alt="Clean architecture" width="275" height="350">
+    <img src="./viewmodel-lifecycle.png" alt="ViewModel" width="350" height="350">
 </div>
 
 
