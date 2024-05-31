@@ -25,12 +25,14 @@ class TransactionViewHolder(
             bindingItem.transactionAmount.text = transaction.amount.toString()
             bindingItem.transactionDate.text = transaction.dateTime
 
+            // Obtener el id del otro usuario
             val otherUserId = if (transaction.idSender == usuarioConectado?.user_id) {
                 transaction.idReceriver
             } else {
                 transaction.idSender
             }
 
+            // Obtener la información del otro usuario y pintarla en el RecyclerView
             val otherUser = usuarios.find { it.user_id == otherUserId }
             otherUser?.let { user ->
                 bindingItem.transactionUserName.text = user.nombre
@@ -38,7 +40,7 @@ class TransactionViewHolder(
                 val imageResource = WalletViewModel().getUserImageResource(user.user_id)
                 bindingItem.transactionUserImg.setImageResource(imageResource)
             }
-
+            // Definir si el usuario conectado recibe o envía dinero
             if (transaction.idSender == usuarioConectado?.user_id) {
                 // Enviando
                 bindingItem.operationIcon.setImageResource(R.drawable.send_icon_yellow)

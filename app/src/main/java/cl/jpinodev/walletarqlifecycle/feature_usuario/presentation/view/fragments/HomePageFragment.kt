@@ -12,7 +12,13 @@ import cl.jpinodev.walletarqlifecycle.R
 import cl.jpinodev.walletarqlifecycle.databinding.FragmentHomePageBinding
 import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.adapter.TransactionAdapter
 import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.WalletViewModel
-
+/**
+* Fragmento que representa la página de inicio, mostrando información del usuario conectado,
+* su saldo en cuenta y las transacciones realizadas relacionadas a él.
+* Se encarga de inicializar y configurar la vista, manejar la navegación y observar los
+* cambios en los datos desde el ViewModel relacionado.
+*
+* */
 class HomePageFragment : Fragment() {
     private lateinit var binding: FragmentHomePageBinding
     private val viewModel: WalletViewModel by activityViewModels()
@@ -39,7 +45,10 @@ class HomePageFragment : Fragment() {
         binding.btnSend.setOnClickListener {
             navController.navigate(R.id.transactionSend)
         }
-
+/*
+*  Observa los cambios en el usuario conectado y actualiza la vista con la información del usuario.
+* Tambien inicializa el adapter con el usuario conectado y la lista de usuarios.
+* */
         viewModel.usuarioConectado.observe(viewLifecycleOwner) { usuario ->
             binding.greetingName.text = usuario.nombre
             val imageResource = viewModel.getUserImageResource(usuario.user_id)
@@ -53,7 +62,10 @@ class HomePageFragment : Fragment() {
 
             filterTransactions(usuario.user_id)
         }
-
+/*
+*  Observa los cambios en la lista de transacciones y llama el metodo para filtrar las transacciones
+* relacionadas con el usuario conectado.
+* */
         viewModel.transactionsLD.observe(viewLifecycleOwner) { transactions ->
             val usuarioId = viewModel.usuarioConectado.value?.user_id
             if (usuarioId != null) {
@@ -62,6 +74,12 @@ class HomePageFragment : Fragment() {
         }
     }
 
+    /**
+     * Filtra las transacciones relacionadas con el usuario conectado y actualiza la lista de
+     * transacciones.
+     *
+     * @param userId ID del usuario conectado.
+     */
     private fun filterTransactions(userId: String) {
         val allTransactions = viewModel.transactionsLD.value ?: mutableListOf()
         val filteredTransactions = allTransactions.filter {

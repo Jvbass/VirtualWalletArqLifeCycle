@@ -13,7 +13,7 @@ import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.Wal
 
 class TransactionSend : Fragment() {
     private lateinit var binding: FragmentTransactionSendBinding
-    private val viewModel: WalletViewModel by activityViewModels()
+    private val viewModel: WalletViewModel by activityViewModels() //en fragment se usa by activityViewModels
     private lateinit var adapter: UsersAdapter
 
     override fun onCreateView(
