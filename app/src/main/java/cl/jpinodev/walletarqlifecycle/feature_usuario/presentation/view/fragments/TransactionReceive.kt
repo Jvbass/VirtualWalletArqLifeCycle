@@ -36,6 +36,5 @@ class TransactionReceive : Fragment() {
             adapter = UsersAdapter(requireContext(), usuarios)
             binding.spinnerReceiveMoney.adapter = adapter
         }
-
     }
 }
