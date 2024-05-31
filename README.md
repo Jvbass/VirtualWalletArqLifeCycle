@@ -23,7 +23,8 @@
 
 En este proyecto se representan conceptos aprendidos sobre el ciclo de vida de una aplicacion y la metodologia para la persistencia de datos a traves de este. Se focaliza especialmente en el uso del View Model y la arquitectura MVVM (Model View ViewModel) que le hace referencia. 
 
-El desafio especial en este proyecto es pasar datos entre pantallas, fragmentos y actvidades que conforman la Arquitectura MVVM. Los datos de un usuario correctamente logeado, deben persistir y ser coherentes en todas las pantallas de la app y cambios del dispositivo.
+El desafio especial en este proyecto es pasar datos entre clases u objetos que representan las capas de la Clean Architecture. 
+Los datos de un usuario correctamente logeado, deben persistir y ser coherentes y presentadas en las pantallas de la app y cambios del dispositivo.
 
 ![Mvvm Funcionamiento](./ArqMvvm.gif)
 
