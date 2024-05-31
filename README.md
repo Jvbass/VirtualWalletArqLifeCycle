@@ -7,7 +7,7 @@
 
 ****
 
-![Pantallas App Virtual Wallet](./PantallasApp.png)
+![Pantallas App Virtual Wallet](./Pantallas.png)
 
 ## 🤓Notas del desarrollador:
 - Usuario de prueba: 
@@ -24,7 +24,7 @@ En este proyecto se representan conceptos aprendidos sobre el ciclo de vida de u
 
 El desafio especial en este proyecto es pasar datos entre pantallas, fragmentos y actvidades que conforman la Arquitectura MVVM. Los datos de un usuario correctamente logeado, deben persistir y ser coherentes en todas las pantallas de la app y cambios del dispositivo.
 
-![Mvvm Funcionamiento](./mvvm.gif)
+![Mvvm Funcionamiento](./ArqMvvm.gif)
 
 ## 🛠️Tecnologías y Herramientas Utilizadas
   - Android Studio Jellyfish | 2023.3.1
