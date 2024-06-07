@@ -32,9 +32,11 @@ class TransactionReceive : Fragment() {
             navController.navigateUp()
         }
 
-        viewModel.usuarios.observe(viewLifecycleOwner) { usuarios ->
-            adapter = UsersAdapter(requireContext(), usuarios)
-            binding.spinnerReceiveMoney.adapter = adapter
+         viewModel.usuarioConectado.observe(viewLifecycleOwner) {
+            val imageResource = viewModel.getUserImageResource(it.user_id)
+            binding.nombreUsuario.text = it.nombre
+            binding.apellidoUsuario.text = it.apellido
+            binding.imageUsuario.setImageResource(imageResource)
         }
     }
 }

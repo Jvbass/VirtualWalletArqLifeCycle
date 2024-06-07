@@ -10,7 +10,7 @@ import cl.jpinodev.walletarqlifecycle.R
 import cl.jpinodev.walletarqlifecycle.databinding.FragmentProfilePageBinding
 import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.WalletViewModel
 
-class ProfilePage : Fragment() {
+class  ProfilePage : Fragment() {
     private lateinit var binding: FragmentProfilePageBinding
     private val viewModel : WalletViewModel by activityViewModels()
 
