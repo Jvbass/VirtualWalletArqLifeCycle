@@ -23,6 +23,7 @@ class WalletViewModel : ViewModel() {
     private val _usuarios = MutableLiveData<MutableList<Usuario>>()
     private val _transactions = MutableLiveData<MutableList<Transaction>>()
     private val _accounts = MutableLiveData<MutableList<Account>>()
+    private val _usuarioConectado = MutableLiveData<Usuario>()
 
     /*
     * LiveData para obtener los usuarios, usuario conectado, transacciones y cuentas
@@ -32,13 +33,11 @@ class WalletViewModel : ViewModel() {
     val accountsLD: MutableLiveData<MutableList<Account>> get() = _accounts
     val usuarioConectado: LiveData<Usuario> get() = _usuarioConectado
 
-    private val _usuarioConectado = MutableLiveData<Usuario>()
-
     /*
     *  Inicializa los usuarios, las transacciones y las cuentas
     * */
     init {
-        _usuarios.value =  UsuariosDataSet().getAllUsuarios()
+        _usuarios.value = UsuariosDataSet().getAllUsuarios()
         _transactions.value = TransactionDataSet().getTransactionList()
         _accounts.value = AccountDataSet().getAllAccounts()
     }
@@ -66,6 +65,7 @@ class WalletViewModel : ViewModel() {
             return null
         }
     }
+
     /*
     *  Metodo que encarga de obtener el recurso de imagen correspondiente al usuario que recibe
     * @Params userId: String
@@ -90,6 +90,7 @@ class WalletViewModel : ViewModel() {
     fun getBalanceForUser(userId: String): Double {
         return _accounts.value?.find { it.user_id == userId }?.balance ?: 0.0
     }
+
     // Métodos para agregar transacciones
     fun addTransaction(senderId: String, receiverId: String, amount: Double, dateTime: String) {
         val newTransaction = Transaction(
@@ -112,12 +113,14 @@ class WalletViewModel : ViewModel() {
     }
 
     /***********
-    *  Metodo para actualizar los saldos de los usuarios
-    * ************/
+     *  Metodo para actualizar los saldos de los usuarios
+     * ************/
     private fun updateBalances(senderId: String, receiverId: String, amount: Double) {
         val accounts = _accounts.value ?: return // Obtener la lista de cuentas
-        val senderAccount = accounts.find { it.user_id == senderId } // Encontrar la cuenta del remitente
-        val receiverAccount = accounts.find { it.user_id == receiverId } // Encontrar la cuenta del receptor
+        val senderAccount =
+            accounts.find { it.user_id == senderId } // Encontrar la cuenta del remitente
+        val receiverAccount =
+            accounts.find { it.user_id == receiverId } // Encontrar la cuenta del receptor
 
         /*
         *  Actualizar los saldos de los usuarios
@@ -129,8 +132,31 @@ class WalletViewModel : ViewModel() {
         receiverAccount?.let {
             it.balance += amount // suma saldo al receptor
         }
-
         _accounts.value = accounts
-    }// Metodo para obtener las transacciones de un usuario
+    }// end of updateBalances
+
+    /*
+    * Metodo para recibir dinero
+    * @Params receiverId: String, amount: Double
+    * @UsedBy TransactionReceive Fragment
+    * */
+    fun receiveMoney(receiverId: String, amount: Double) {
+        val receiverAccount = _accounts.value?.find { it.user_id == receiverId }
+        receiverAccount?.let {
+            it.balance += amount
+            _accounts.value = _accounts.value // Notificar la actualización
+        }
+    }
+
+    fun addTransactionDeposit(userId: String, amount: Double, dateTime: String) {
+        val newTransaction = Transaction(
+            id = generateTransactionId(),
+            amount = amount,
+            idSender = userId,
+            idReceriver = userId,
+            dateTime = dateTime
+        )
+        _transactions.value?.add(newTransaction)
+    }
 
 }// end of class WalletViewModel
