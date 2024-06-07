@@ -41,7 +41,7 @@ class TransactionViewHolder(
                 bindingItem.transactionUserImg.setImageResource(imageResource)
             }
             // Definir si el usuario conectado recibe o envía dinero
-            if (transaction.idSender == usuarioConectado?.user_id) {
+            if (transaction.idSender == usuarioConectado?.user_id && transaction.idReceriver != usuarioConectado?.user_id ) {
                 // Enviando
                 bindingItem.operationIcon.setImageResource(R.drawable.send_icon_yellow)
                 bindingItem.transactionOperationType.text = "-"
