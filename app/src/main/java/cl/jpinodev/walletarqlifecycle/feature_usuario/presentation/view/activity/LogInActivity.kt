@@ -18,6 +18,11 @@ class LogInActivity : AppCompatActivity() {
         binding = ActivityLogInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.linkCrearCuenta.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.loginButton.setOnClickListener {
             val txtEmail = binding.emailEditText.text.toString()
             val txtPassword = binding.passwordEditText.text.toString()
