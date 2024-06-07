@@ -15,7 +15,7 @@ class AccountDataSet {
             Account("acc8", "User08", 800.0),
         )
     }
-    fun getAllAccounts(): MutableList<Account>? {
+    fun getAllAccounts(): MutableList<Account> {
         return createAccounts()
     }
 }

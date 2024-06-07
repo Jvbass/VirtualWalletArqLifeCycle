@@ -16,7 +16,7 @@ class UsuariosDataSet {
 
         )
     }
-    fun getAllUsuarios(): MutableList<Usuario>? {
+    fun getAllUsuarios(): MutableList<Usuario> {
         return createUsuarios()
     }
 }

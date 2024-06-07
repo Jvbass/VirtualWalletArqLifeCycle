@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import cl.jpinodev.walletarqlifecycle.databinding.ActivityMainContainerBinding
-import cl.jpinodev.walletarqlifecycle.feature_usuario.data.local.DataHolder
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Usuario
 import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.WalletViewModel
 

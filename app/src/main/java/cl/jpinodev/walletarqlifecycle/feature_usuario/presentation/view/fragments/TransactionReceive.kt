@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import cl.jpinodev.walletarqlifecycle.databinding.FragmentTransactionReceiveBinding
-import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.adapter.UsersAdapter
 import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.utils.ToastUtils
 import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.WalletViewModel
 import java.text.SimpleDateFormat

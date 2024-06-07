@@ -101,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:fontFamily="@font/font_jua_wallet"
-            android:text="Cantidad a ingresar"
+            android:text="Comentario"
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
@@ -131,7 +131,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/font_jua_wallet"
                 android:gravity="top|start"
-                android:hint="Agregar notas de transferencia (opcional)"
+                android:hint="@string/agregar_notas_de_transferencia_opcional"
                 android:inputType="textMultiLine"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black_light"
@@ -142,6 +142,7 @@
 
         <ImageView
             android:id="@+id/bg_transactionbtn"
+            android:contentDescription="@string/background_button_colo_white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_rectangle_transactionbtn"
