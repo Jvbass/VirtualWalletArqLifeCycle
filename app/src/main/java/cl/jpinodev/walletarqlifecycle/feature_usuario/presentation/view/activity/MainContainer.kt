@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import cl.jpinodev.walletarqlifecycle.databinding.ActivityMainContainerBinding
+import cl.jpinodev.walletarqlifecycle.feature_usuario.data.local.DataHolder
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Usuario
 import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.WalletViewModel
 
@@ -19,6 +20,7 @@ class MainContainer : AppCompatActivity() {
         setContentView(binding.root)
 
         if(intent.hasExtra("usuario")){
+            //val usuario = DataHolder.currentUser
             val usuario = intent.getParcelableExtra<Usuario>("usuario")
 
             if (usuario != null){

@@ -11,4 +11,5 @@ object DataHolder {
     var transactions: MutableList<Transaction> = TransactionDataSet().getTransactionList()
     var accounts: MutableList<Account> = AccountDataSet().getAllAccounts() ?: mutableListOf()
     var usuarios: MutableList<Usuario> = UsuariosDataSet().getAllUsuarios() ?: mutableListOf()
+    //var currentUser: Usuario? = null
 }

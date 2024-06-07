@@ -19,7 +19,6 @@ data class Usuario(
         parcel.readString() ?: "",
         parcel.readString() ?: ""
     )
-
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(user_id)
         parcel.writeString(nombre)
@@ -28,16 +27,13 @@ data class Usuario(
         parcel.writeString(contrasena)
         parcel.writeString(fecha_creacion)
     }
-
     override fun describeContents(): Int {
         return 0
     }
-
     companion object CREATOR : Parcelable.Creator<Usuario> {
         override fun createFromParcel(parcel: Parcel): Usuario {
             return Usuario(parcel)
         }
-
         override fun newArray(size: Int): Array<Usuario?> {
             return arrayOfNulls(size)
         }

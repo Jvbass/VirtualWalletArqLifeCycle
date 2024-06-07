@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import cl.jpinodev.walletarqlifecycle.databinding.ActivityLogInBinding
+import cl.jpinodev.walletarqlifecycle.feature_usuario.data.local.DataHolder
 import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.utils.ToastUtils
 import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.WalletViewModel
 
@@ -31,6 +32,7 @@ class LogInActivity : AppCompatActivity() {
             if (user != null) {
                //Log.d("TESTING", test.toString())
                 val intent = Intent(this, MainContainer::class.java)
+               // DataHolder.currentUser = user
                 intent.putExtra("usuario", user)
                 startActivity(intent)
             } else {
