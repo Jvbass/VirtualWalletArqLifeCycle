@@ -14,15 +14,6 @@ import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Usuario
 /*
  * ViewModel para manejar los datos y operaciones relacionadas con usuarios, transacciones y cuentas.
  *
-* @property usuarios LiveData que expone la lista mutable de usuarios.
-* @property transactionsLD LiveData que expone la lista mutable de transacciones.
-* @property accountsLD LiveData que expone la lista mutable de cuentas.
-* @property usuarioConectado LiveData que expone el usuario conectado.
-* @property _usuarios MutableLiveData que almacena la lista mutable de usuarios.
-* @property _transactions MutableLiveData que almacena la lista mutable de transacciones.
-* @property _accounts MutableLiveData que almacena la lista mutable de cuentas.
-* @property _usuarioConectado MutableLiveData que almacena el usuario conectado.
-*
 */
 class WalletViewModel : ViewModel() {
 
@@ -99,4 +90,47 @@ class WalletViewModel : ViewModel() {
     fun getBalanceForUser(userId: String): Double {
         return _accounts.value?.find { it.user_id == userId }?.balance ?: 0.0
     }
-}
+    // Métodos para agregar transacciones
+    fun addTransaction(senderId: String, receiverId: String, amount: Double, dateTime: String) {
+        val newTransaction = Transaction(
+            id = generateTransactionId(),
+            amount = amount,
+            idSender = senderId,
+            idReceriver = receiverId,
+            dateTime = dateTime
+        )
+        _transactions.value?.add(newTransaction)
+        updateBalances(senderId, receiverId, amount)
+    }
+
+    /*
+    * Metodo para generar un id de transacción
+    * @UsedBy addTransaction
+    * */
+    private fun generateTransactionId(): String {
+        return "T${_transactions.value?.size?.plus(1)}"
+    }
+
+    /***********
+    *  Metodo para actualizar los saldos de los usuarios
+    * ************/
+    private fun updateBalances(senderId: String, receiverId: String, amount: Double) {
+        val accounts = _accounts.value ?: return // Obtener la lista de cuentas
+        val senderAccount = accounts.find { it.user_id == senderId } // Encontrar la cuenta del remitente
+        val receiverAccount = accounts.find { it.user_id == receiverId } // Encontrar la cuenta del receptor
+
+        /*
+        *  Actualizar los saldos de los usuarios
+        * */
+        senderAccount?.let { // Con let se verifica que la cuenta no sea nula
+            it.balance -= amount // resta saldo del remitente
+        }
+
+        receiverAccount?.let {
+            it.balance += amount // suma saldo al receptor
+        }
+
+        _accounts.value = accounts
+    }// Metodo para obtener las transacciones de un usuario
+
+}// end of class WalletViewModel
