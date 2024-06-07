@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import cl.jpinodev.walletarqlifecycle.databinding.ActivityLogInBinding
+import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.utils.ToastUtils
 import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.WalletViewModel
 
 class LogInActivity : AppCompatActivity() {
@@ -16,8 +17,6 @@ class LogInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLogInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-       // userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
         binding.loginButton.setOnClickListener {
             val txtEmail = binding.emailEditText.text.toString()
@@ -30,9 +29,8 @@ class LogInActivity : AppCompatActivity() {
                 intent.putExtra("usuario", user)
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
+                ToastUtils.showCustomToast(this, "Usuario o contraseña incorrecto")
             }
-
         }
     }
 }
