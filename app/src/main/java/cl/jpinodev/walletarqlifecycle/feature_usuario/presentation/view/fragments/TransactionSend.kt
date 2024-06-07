@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import cl.jpinodev.walletarqlifecycle.databinding.FragmentTransactionSendBinding
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Usuario
 import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.adapter.UsersAdapter
+import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.utils.ToastUtils
 import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.WalletViewModel
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -57,16 +58,19 @@ class TransactionSend : Fragment() {
                             amount,
                             getCurrentDateTime()
                         )
-                        Toast.makeText(context, "Dinero enviado con éxito", Toast.LENGTH_SHORT)
-                            .show()
+                        ToastUtils.showCustomToast(requireContext(), "Dinero enviado con exito")
+                      //  Toast.makeText(context, "Dinero enviado con éxito", Toast.LENGTH_SHORT).show()
                         navController.navigateUp()
                     }
                     else {
-                        Toast.makeText(context, "Saldo insuficiente", Toast.LENGTH_SHORT).show()
+
+                        ToastUtils.showCustomToast(requireContext(), "Saldo insuficiente")
+                        //Toast.makeText(context, "Saldo insuficiente", Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {
-                Toast.makeText(context, "Ingrese un monto válido", Toast.LENGTH_SHORT).show()
+                ToastUtils.showCustomToast(requireContext(), "Ingrese un monto valido")
+                //Toast.makeText(context, "Ingrese un monto válido", Toast.LENGTH_SHORT).show()
             }
         }
     }
