@@ -6,179 +6,188 @@
     android:layout_height="match_parent"
     tools:context=".feature_usuario.presentation.view.fragments.TransactionReceive">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="15dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="15dp" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="15dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="15dp" />
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/materialToolbar"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:navigationIconTint="@color/black"
+        app:title="Ingresar Dinero"
+        app:titleCentered="true"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        app:titleTextColor="@color/primary_dark" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar" />
+
+    <ImageView
+        android:id="@+id/imageUsuario"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/pp_standar"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar" />
+
+
+    <TextView
+        android:id="@+id/nombreUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/font_jua_wallet"
+        android:text="Nombre"
+        app:layout_constraintBottom_toBottomOf="@+id/imageUsuario"
+        app:layout_constraintStart_toEndOf="@+id/imageUsuario"
+        app:layout_constraintTop_toTopOf="@+id/imageUsuario" />
+
+    <TextView
+        android:id="@+id/apellidoUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/font_jua_wallet"
+        android:text="Apellido"
+        app:layout_constraintStart_toEndOf="@+id/nombreUsuario"
+        app:layout_constraintTop_toTopOf="@+id/nombreUsuario" />
+
+    <TextView
+        android:id="@+id/label_cantidad_ingresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/font_jua_wallet"
+        android:text="Cantidad a ingresar"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/imageUsuario" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_amount_send"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        app:boxBackgroundColor="@android:color/white"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxStrokeColor="@color/primary"
+        app:boxStrokeWidth="2dp"
+        app:boxStrokeWidthFocused="3dp"
+        app:hintEnabled="true"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/label_cantidad_ingresar"
+        app:placeholderTextColor="@color/primary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_amount_send"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:navigationIcon="?attr/homeAsUpIndicator"
-            app:navigationIconTint="@color/black"
-            app:title="Ingresar Dinero"
-            app:titleTextColor="@color/primary_dark"
-            app:titleCentered="true"
-            app:titleTextAppearance="@style/Toolbar.TitleText" />
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/color_grey"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/materialToolbar" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="24dp"
-            android:src="@drawable/pp_standar"
-            app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/materialToolbar" />
-
-
-        <Spinner
-            android:id="@+id/spinner_receive_money"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/input_amount_send"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
-            app:layout_constraintVertical_bias="0.343"
-            tools:listitem="@layout/users_item" />
-
-        <TextView
-            android:id="@+id/label_cantidad_ingresar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_height="match_parent"
             android:fontFamily="@font/font_jua_wallet"
-            android:text="Cantidad a ingresar"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            android:inputType="numberDecimal"
+            android:textColor="@color/primary"
+            android:textColorHint="@color/black_light" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_amount_send"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="8dp"
-            app:boxBackgroundColor="@android:color/white"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusTopStart="15dp"
-            app:boxStrokeColor="@color/primary"
-            app:boxStrokeWidth="2dp"
-            app:boxStrokeWidthFocused="3dp"
-            app:placeholderTextColor="@color/primary"
-            app:hintEnabled="true"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/label_cantidad_ingresar">
+    <TextView
+        android:id="@+id/label_comentario_transferencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/font_jua_wallet"
+        android:text="Cantidad a ingresar"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/input_amount_send" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_amount_send"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/font_jua_wallet"
-                android:textColor="@color/primary"
-                android:inputType="numberDecimal"
-                android:textColorHint="@color/black_light" />
-        </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_comentario_transferencia"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        android:hint="Agregar notas de transferencia (opcional)"
+        app:boxBackgroundColor="@android:color/white"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxStrokeColor="@color/primary"
+        app:boxStrokeWidth="2dp"
+        app:boxStrokeWidthFocused="3dp"
+        app:hintEnabled="true"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/label_comentario_transferencia"
+        app:placeholderTextColor="@color/primary">
 
-        <TextView
-            android:id="@+id/label_comentario_transferencia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_comentario_transferencia"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:fontFamily="@font/font_jua_wallet"
-            android:text="Cantidad a ingresar"
+            android:gravity="top|start"
+            android:inputType="textMultiLine"
             android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/input_amount_send" />
+            android:textColorHint="@color/black_light"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_comentario_transferencia"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="8dp"
-            app:boxBackgroundColor="@android:color/white"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusTopStart="15dp"
-            app:boxStrokeColor="@color/primary"
-            app:boxStrokeWidth="2dp"
-            android:hint="Agregar notas de transferencia (opcional)"
-            app:boxStrokeWidthFocused="3dp"
-            app:placeholderTextColor="@color/primary"
-            app:hintEnabled="true"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/label_comentario_transferencia">
+    <ImageView
+        android:id="@+id/bg_transactionbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_comentario_transferencia"
-                android:gravity="top|start"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="14sp"
-                android:fontFamily="@font/font_jua_wallet"
-                android:textColor="@color/black"
-                android:inputType="textMultiLine"
-                android:textColorHint="@color/black_light" />
-        </com.google.android.material.textfield.TextInputLayout>
+        android:background="@drawable/bg_rectangle_transactionbtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/bg_transactionbtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/primary_dark"
+        android:fontFamily="@font/jua"
+        android:text="@string/ingresar_dinero"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:translationZ="100dp"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/request_icon_blue"
+        app:iconGravity="textStart"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/bg_transactionbtn" />
 
-            android:background="@drawable/bg_rectangle_transactionbtn"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:backgroundTint="@color/primary_dark"
-            android:fontFamily="@font/jua"
-            android:text="@string/ingresar_dinero"
-            app:icon="@drawable/request_icon_blue"
-            app:iconTint="@color/white"
-            app:iconGravity="textStart"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:translationZ="100dp"
-            app:cornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toTopOf="@+id/bg_transactionbtn" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
