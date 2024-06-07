@@ -4,10 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import cl.jpinodev.walletarqlifecycle.R
-import cl.jpinodev.walletarqlifecycle.feature_usuario.data.local.AccountDataSet
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.local.DataHolder
-import cl.jpinodev.walletarqlifecycle.feature_usuario.data.local.TransactionDataSet
-import cl.jpinodev.walletarqlifecycle.feature_usuario.data.local.UsuariosDataSet
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Account
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Transaction
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Usuario
@@ -33,7 +30,7 @@ class WalletViewModel : ViewModel() {
     * */
     val usuarios: LiveData<MutableList<Usuario>> get() = _usuarios
     val transactionsLD: MutableLiveData<MutableList<Transaction>> get() = _transactions
-    val accountsLD: MutableLiveData<MutableList<Account>> get() = _accounts
+   // val accountsLD: MutableLiveData<MutableList<Account>> get() = _accounts
     val usuarioConectado: LiveData<Usuario> get() = _usuarioConectado
 
     /*

@@ -2,11 +2,9 @@ package cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.view.activit
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import cl.jpinodev.walletarqlifecycle.databinding.ActivityLogInBinding
-import cl.jpinodev.walletarqlifecycle.feature_usuario.data.local.DataHolder
 import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.utils.ToastUtils
 import cl.jpinodev.walletarqlifecycle.feature_usuario.presentation.viewmodel.WalletViewModel
 
