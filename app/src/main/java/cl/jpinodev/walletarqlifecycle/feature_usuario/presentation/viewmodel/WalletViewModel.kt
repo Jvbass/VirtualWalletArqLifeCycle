@@ -78,7 +78,7 @@ class WalletViewModel : ViewModel() {
             "User03" -> R.drawable.pp1
             "User04" -> R.drawable.pp4
             "User05" -> R.drawable.pp5
-            else -> R.drawable.pdefault // Imagen predeterminada en caso de no encontrar coincidencia
+            else -> R.drawable.pp_standar // Imagen predeterminada en caso de no encontrar coincidencia
         }
     }
 
