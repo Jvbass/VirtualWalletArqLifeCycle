@@ -16,6 +16,9 @@
 - Al hacer click en la _foto de perfil_ se mostrara la ventana Profile
 - En las pantallas _Request Money_ y _Send Money_, la flecha hacia atrás del MaterialToolbar ubicado en la parte superior, envia al usuario devuelta al _Home_.
 - En las pantallas _Request Money_ y _Send Money_ al hacer click en el nombre despliega un spinner con la lista de usuarios.
+- Los datos como saldo de cada cuenta y listado de transferencias persisten mientras no se cierre la app.
+- Se implementan transferencias y deposito, captura fecha y hora local de transferencia
+- Registro de usuario crea cuenta nueva con 500 de saldo inicial.
 
 ****
 ## 💸 VirtualWallet
