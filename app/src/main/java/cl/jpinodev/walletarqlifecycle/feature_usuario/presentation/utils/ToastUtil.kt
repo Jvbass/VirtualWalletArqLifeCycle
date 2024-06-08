@@ -7,6 +7,9 @@ import android.widget.TextView
 import android.widget.Toast
 import cl.jpinodev.walletarqlifecycle.R
 
+ /*
+* Toast personalizado con colores de la app
+* */
 object ToastUtils {
     fun showCustomToast(context: Context, message: String) {
         val inflater = LayoutInflater.from(context)

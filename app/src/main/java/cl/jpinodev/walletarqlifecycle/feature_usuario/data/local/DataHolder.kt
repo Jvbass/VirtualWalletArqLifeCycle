@@ -5,7 +5,7 @@ import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Transaction
 import cl.jpinodev.walletarqlifecycle.feature_usuario.data.model.Usuario
 
 /*
-*  Clase singleton para guardar datos en memoria para que persistan entre activites
+*  Clase singleton para guardar datos en memoria para su persistencia entre activites
 * */
 object DataHolder {
     var transactions: MutableList<Transaction> = TransactionDataSet().getTransactionList()

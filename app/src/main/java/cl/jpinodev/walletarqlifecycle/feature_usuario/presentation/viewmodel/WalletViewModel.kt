@@ -20,9 +20,12 @@ class WalletViewModel : ViewModel() {
     /*
     * Variables privadas para usuarios, transacciones y cuentas
     * */
-    private val _usuarios = MutableLiveData<MutableList<Usuario>>().apply { value = DataHolder.usuarios }
-    private val _transactions = MutableLiveData<MutableList<Transaction>>().apply { value = DataHolder.transactions }
-    private val _accounts = MutableLiveData<MutableList<Account>>().apply { value = DataHolder.accounts }
+    private val _usuarios =
+        MutableLiveData<MutableList<Usuario>>().apply { value = DataHolder.usuarios }
+    private val _transactions =
+        MutableLiveData<MutableList<Transaction>>().apply { value = DataHolder.transactions }
+    private val _accounts =
+        MutableLiveData<MutableList<Account>>().apply { value = DataHolder.accounts }
     private val _usuarioConectado = MutableLiveData<Usuario>()
 
     /*
@@ -30,17 +33,18 @@ class WalletViewModel : ViewModel() {
     * */
     val usuarios: LiveData<MutableList<Usuario>> get() = _usuarios
     val transactionsLD: MutableLiveData<MutableList<Transaction>> get() = _transactions
-   // val accountsLD: MutableLiveData<MutableList<Account>> get() = _accounts
+
+    // val accountsLD: MutableLiveData<MutableList<Account>> get() = _accounts
     val usuarioConectado: LiveData<Usuario> get() = _usuarioConectado
 
-    /*
-    *  Inicializa los usuarios, las transacciones y las cuentas
-    * */
-    /*init {
-        _usuarios.value = UsuariosDataSet().getAllUsuarios()
-        _transactions.value = TransactionDataSet().getTransactionList()
-        _accounts.value = AccountDataSet().getAllAccounts()
-    }*/
+        /*
+        *  Inicializa los usuarios, las transacciones y las cuentas
+        * */
+        /*init {
+            _usuarios.value = UsuariosDataSet().getAllUsuarios()
+            _transactions.value = TransactionDataSet().getTransactionList()
+            _accounts.value = AccountDataSet().getAllAccounts()
+        }*/
 
     /*
     * Metodo para definir el usuario conectado
@@ -162,13 +166,18 @@ class WalletViewModel : ViewModel() {
             dateTime = dateTime
         )
         DataHolder.transactions.add(newTransaction)
-        _transactions.value = DataHolder.transactions  // Añadir a DataHolder
+        _transactions.value = DataHolder.transactions
     }
 
     /*
     * Metodo para crear nuevo usuario
-    * */
-    fun crearNuevoUsuario(nombre: String, apellido: String, email: String, contrasena: String): Usuario {
+    **************/
+    fun crearNuevoUsuario(
+        nombre: String,
+        apellido: String,
+        email: String,
+        contrasena: String
+    ): Usuario {
         val nuevoUsuario = Usuario(
             user_id = generateUserId(),
             nombre = nombre,
@@ -190,6 +199,7 @@ class WalletViewModel : ViewModel() {
 
         return nuevoUsuario
     }
+
     private fun generateUserId(): String {
         return "User${_usuarios.value?.size?.plus(1)}"
     }
